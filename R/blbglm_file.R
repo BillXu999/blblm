@@ -18,7 +18,6 @@ utils::globalVariables(c("."))
 #' @param m  which is numeric variables, indicates the number of splits we need
 #' @family family which indicates which kinds of glm we use
 #' @param B which is a numeric variable, indicates number of bootstraps we need
-#' @param cl The muticluster we get from parallel
 #' @return blblm object
 #' @examples
 #' #library(parallel)

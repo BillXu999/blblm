@@ -34,7 +34,7 @@ blbglm_par <- function(formula,family = gaussian, data, m = 10, B = 5000,cl) {
   glm_temp<- function(data_list){
     glm_each_subsample(formula = formula, data =data_list, n = n, B = B,family)
   }
-  clusterExport(cl, c("formula","B","n","glm_each_subsample","glm_each_boot","glm1","glm"), envir = environment())
+  clusterExport(cl, c("formula","B","n","glm_each_subsample","glm_each_boot","glm1","glm","blbcoef","blbsigma"), envir = environment())
   estimates <- parLapply(cl,data_list,glm_temp)
   res <- list(estimates = estimates, formula = formula)
   class(res) <- "blblm"

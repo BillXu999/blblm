@@ -33,3 +33,9 @@ supressWarnings(plan(mutiprocessor, workers = 4))
 ```
 ### 5 blblm_file_par(formula, file, m, B,cl), blbglm_file_(formula, family, file, m, B,cl),blblm_file_fast_(file , B)
 
+This is just the combination of 3 and 4. We can consider fitting model with imput the file and with more than one CPUS.
+
+Because for some reason I can not show the markdown, I just run the code in the cript, and it is convient you wanner to check.
+
+
+

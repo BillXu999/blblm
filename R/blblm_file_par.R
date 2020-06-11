@@ -23,10 +23,10 @@ utils::globalVariables(c("."))
 #' # library(parallel)
 #' # cl<- makeCluster(4)
 #' # file<- c("file01.csv","file02.csv")
-#' # fit<- blblm_file_par(mpg~., file, m = 10, B = 5000,cl)
+#' # fit<- blblm_file_par(mpg~., file, B = 5000,cl)
 #' # stopCluster(cl)
 #' @export
-blblm_file_par <- function(formula, file, m = 10, B = 5000, cl) {
+blblm_file_par <- function(formula, file, B = 5000, cl) {
   lm_temp<- function(file){
     lm_each_subsample_file(formula = formula, file =file, B = B)
   }

@@ -11,6 +11,20 @@
 utils::globalVariables(c("."))
 
 
+#' @title Fit a general linear regression model with file imput with more than one CPUs
+#' @description Fit the linear regression model with file input with more than one CPUs
+#' @param formula The linear regression model we fitted
+#' @param file which is usual is the data frame, which is the data we imput.
+#' @param m  which is numeric variables, indicates the number of splits we need
+#' @family family which indicates which kinds of glm we use
+#' @param B which is a numeric variable, indicates number of bootstraps we need
+#' @param cl The muticluster we get from parallel
+#' @return blblm object
+#' @examples
+#' #library(parallel)
+#' #cl<- makeCluster(4)
+#' # fit<- blbglm.file(Species~., data = read.csv("iris.csv"), m = 10, B = 5000,cl)
+#' # stopCluster(cl)
 #' @export
 blbglm_file <- function(formula,family = gaussian, file, B = 5000) {
   estimates <- map(

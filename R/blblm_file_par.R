@@ -12,6 +12,19 @@
 utils::globalVariables(c("."))
 
 
+#' @title Fit a linear regression model with file input and with more than one CPU works
+#' @description Fit the linear regression model with data frame input with file input and with more than one CPU works.
+#' @param formula The linear regression model we fitted
+#' @param file which is usual the list of name of .csv files, which is the data we imput.
+#' @param m  which is numeric variables, indicates the number of splits we need
+#' @param B which is a numeric variable, indicates number of bootstraps we need
+#' @return blblm object
+#' @examples
+#' # library(parallel)
+#' # cl<- makeCluster(4)
+#' # file<- c("file01.csv","file02.csv")
+#' # fit<- blblm_file_par(mpg~., file, m = 10, B = 5000,cl)
+#' # stopCluster(cl)
 #' @export
 blblm_file_par <- function(formula, file, m = 10, B = 5000, cl) {
   lm_temp<- function(file){

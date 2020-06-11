@@ -10,7 +10,16 @@
 
 utils::globalVariables(c("."))
 
-
+#' @title Fit a linear regression model for a fast method
+#' @description Fit the linear regression model with matrix input
+#' @param x which is usual matrix as the predictive variable, if you want to include the intercetion, please include the 1 vector in the first colmun
+#' @param m  which is numeric variables, indicates the number of splits we need
+#' @param B which is a numeric variable, indicates number of bootstraps we need
+#' @return blblm object
+#' @examples
+#' #x<- matrix(c(1,1,1,4,5,3,1,3,5),3,3)
+#' #y<- c(2,4,5)
+#' # fit<- blblm_fast(x, y)
 #' @export
 blblm_fast <- function(x,y, m = 10, B = 5000) {
   data<- cbind(y,x)
@@ -24,13 +33,13 @@ blblm_fast <- function(x,y, m = 10, B = 5000) {
   invisible(res)
 }
 
-#' compute the estimates
+# compute the estimates
 lm_each_subsample_fast <- function(data, n, B) {
   replicate(B, lm_each_boot_fast(data, n), simplify = FALSE)
 }
 
 
-#' compute the regression estimates for a blb dataset
+# compute the regression estimates for a blb dataset
 lm_each_boot_fast <- function(data, n) {
   data<- as.matrix(data)
   k<- nrow(data)
@@ -43,7 +52,7 @@ lm_each_boot_fast <- function(data, n) {
 }
 
 
-#' estimate the regression estimates based on given the number of repetitions
+# estimate the regression estimates based on given the number of repetitions
 lm_fast <- function(data) {
   y<- data[,1]
   x<- data[,-1]

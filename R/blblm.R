@@ -1,3 +1,4 @@
+
 #' @import purrr
 #' @import stats
 #' @importFrom magrittr %>%
@@ -6,11 +7,18 @@
 "_PACKAGE"
 
 
-## quiets concerns of R CMD check re: the .'s that appear in pipelines
-# from https://github.com/jennybc/googlesheets/blob/master/R/googlesheets.R
 utils::globalVariables(c("."))
 
 
+#' @title Fit a linear regression model
+#' @description Fit the linear regression model with data frame input
+#' @param formula The linear regression model we fitted
+#' @param data which is usual is the data frame, which is the data we imput.
+#' @param m  which is numeric variables, indicates the number of splits we need
+#' @param B which is a numeric variable, indicates number of bootstraps we need
+#' @return blblm object
+#' @examples
+#' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
 #' @export
 blblm <- function(formula, data, m = 10, B = 5000) {
   data_list <- split_data(data, m)
@@ -23,27 +31,27 @@ blblm <- function(formula, data, m = 10, B = 5000) {
 }
 
 
-#' split data into m parts of approximated equal sizes
+# split data into m parts of approximated equal sizes
 split_data <- function(data, m) {
   idx <- sample.int(m, nrow(data), replace = TRUE)
   data %>% split(idx)
 }
 
 
-#' compute the estimates
+# compute the estimates
 lm_each_subsample <- function(formula, data, n, B) {
   replicate(B, lm_each_boot(formula, data, n), simplify = FALSE)
 }
 
 
-#' compute the regression estimates for a blb dataset
+# compute the regression estimates for a blb dataset
 lm_each_boot <- function(formula, data, n) {
   freqs <- rmultinom(1, n, rep(1, nrow(data)))
   lm1(formula, data, freqs)
 }
 
 
-#' estimate the regression estimates based on given the number of repetitions
+# estimate the regression estimates based on given the number of repetitions
 lm1 <- function(formula, data, freqs) {
   # drop the original closure of formula,
   # otherwise the formula will pick a wront variable from the global scope.
@@ -53,13 +61,13 @@ lm1 <- function(formula, data, freqs) {
 }
 
 
-#' compute the coefficients from fit
+# compute the coefficients from fit
 blbcoef <- function(fit) {
   coef(fit)
 }
 
 
-#' compute sigma from fit
+# compute sigma from fit
 blbsigma <- function(fit) {
   p <- fit$rank
   y <- model.extract(fit$model, "response")
@@ -69,6 +77,14 @@ blbsigma <- function(fit) {
 }
 
 
+
+#' @title The method for the blblm class
+#' @description For a blblm object input, we get the print
+#' @param x Which is a blblm variable.
+#' @return char return the formula from the blblm variable
+#' @examples
+#' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
+#' # print(fit)
 #' @export
 #' @method print blblm
 print.blblm <- function(x, ...) {
@@ -77,6 +93,13 @@ print.blblm <- function(x, ...) {
 }
 
 
+#' @title The method for the blblm class
+#' @description For a blblm object input, we get the sigma
+#' @param x Which is a blblm variable.
+#' @return sigma which is the sigema of fit
+#' @examples
+#' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
+#' # sigma(fit)
 #' @export
 #' @method sigma blblm
 sigma.blblm <- function(object, confidence = FALSE, level = 0.95, ...) {
@@ -93,6 +116,17 @@ sigma.blblm <- function(object, confidence = FALSE, level = 0.95, ...) {
   }
 }
 
+
+
+
+
+#' @title The method for the blblm class
+#' @description For a blblm object input, we get the coef
+#' @param x Which is a blblm variable.
+#' @return coef which is the coefficient of fit
+#' @examples
+#' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
+#' # coef(fit)
 #' @export
 #' @method coef blblm
 coef.blblm <- function(object, ...) {
@@ -101,6 +135,13 @@ coef.blblm <- function(object, ...) {
 }
 
 
+#' @title The method for the blblm class
+#' @description For a blblm object input, we get the confident interval
+#' @param x Which is a blblm variable.
+#' @return sigma which is the confident interval of fit
+#' @examples
+#' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
+#' # confint(fit)
 #' @export
 #' @method confint blblm
 confint.blblm <- function(object, parm = NULL, level = 0.95, ...) {
@@ -119,6 +160,19 @@ confint.blblm <- function(object, parm = NULL, level = 0.95, ...) {
   out
 }
 
+
+
+
+#' @title The method for the blblm class
+#' @description For a blblm object input, we get the predictive value and the confident interval for the variable.
+#' @param object Which is a blblm variable.
+#' @param new_data which is a data set, it is the value we want to predict
+#' @param confidence Whcih is the alpha level we want to choose
+#' @return  which returns the predictive value or the confidence interval.
+#' @examples
+#' # fit<- blblm(mpg~disp, data = mtcars, m = 10, B = 5000)
+#' newdata<- data.frame(disp = 10)
+#' # predict(fit,newdata)
 #' @export
 #' @method predict blblm
 predict.blblm <- function(object, new_data, confidence = FALSE, level = 0.95, ...) {

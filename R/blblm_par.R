@@ -10,22 +10,22 @@
 ## quiets concerns of R CMD check re: the .'s that appear in pipelines
 # from https://github.com/jennybc/googlesheets/blob/master/R/googlesheets.R
 utils::globalVariables(c("."))
-#' @export
-Get_cores<- function(){
-  parallel::detectCores()
-}
-
-#' @export
-Get_cluster<- function(cores = 4){
-  cl<- parallel::makeCluster(4)
-}
-
-#' @export
-Stop_cluster<- function(cl){
-  parallel::stopCluster(cl)
-}
 
 
+
+#' @title Fit a linear regression model with more than one CPU works
+#' @description Fit the linear regression model with data frame input with more than one CPU works
+#' @param formula The linear regression model we fitted
+#' @param data which is usual is the data frame, which is the data we imput.
+#' @param m  which is numeric variables, indicates the number of splits we need
+#' @param B which is a numeric variable, indicates number of bootstraps we need
+#' @param cl The muticluster we get from parallel
+#' @return blblm object
+#' @examples
+#' #library(parallel)
+#' #cl<- makeCluster(4)
+#' # fit<- blblm_par(mpg~., data = mtcars, m = 10, B = 5000,cl)
+#' #stopCluster(cl)
 #' @export
 blblm_par <- function(formula, data, m = 10, B = 5000, cl) {
   data_list <- split_data(data, m)

@@ -1,4 +1,5 @@
 #include <RcppArmadillo.h>
+//[[Rcpp::depends(RcppArmadillo)]]
 using namespace Rcpp;
 // [[Rcpp::export]]
 List lmc(const arma::mat& X, const arma::colvec& y) {
@@ -8,7 +9,7 @@ List lmc(const arma::mat& X, const arma::colvec& y) {
   double sig2 = arma::as_scalar(arma::trans(res)*res/(n-k));
   return List::create(Named("coefficients") = coef,
                       Named("res")       = res,
-                      Named("df.residual")  = n - k,
+                     Named("df.residual")  = n - k,
                       Named("sig2")  = sig2);
 }
 

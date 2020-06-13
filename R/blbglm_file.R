@@ -15,8 +15,7 @@ utils::globalVariables(c("."))
 #' @description Fit the linear regression model with file input with more than one CPUs
 #' @param formula The linear regression model we fitted
 #' @param file which is usual is the data frame, which is the data we imput.
-#' @param m  which is numeric variables, indicates the number of splits we need
-#' @family family which indicates which kinds of glm we use
+#' @param family which indicates which kinds of glm we use
 #' @param B which is a numeric variable, indicates number of bootstraps we need
 #' @return blblm object
 #' @examples

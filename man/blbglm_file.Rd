@@ -9,13 +9,11 @@ blbglm_file(formula, family = gaussian, file, B = 5000)
 \arguments{
 \item{formula}{The linear regression model we fitted}
 
+\item{family}{which indicates which kinds of glm we use}
+
 \item{file}{which is usual is the data frame, which is the data we imput.}
 
 \item{B}{which is a numeric variable, indicates number of bootstraps we need}
-
-\item{m}{which is numeric variables, indicates the number of splits we need}
-
-\item{cl}{The muticluster we get from parallel}
 }
 \value{
 blblm object
@@ -29,10 +27,3 @@ Fit the linear regression model with file input with more than one CPUs
 # fit<- blbglm.file(Species~., data = read.csv("iris.csv"), m = 10, B = 5000,cl)
 # stopCluster(cl)
 }
-\seealso{
-Other family which indicates which kinds of glm we use: 
-\code{\link{blbglm_file_par}()},
-\code{\link{blbglm_par}()},
-\code{\link{blbglm}()}
-}
-\concept{family which indicates which kinds of glm we use}

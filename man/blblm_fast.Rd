@@ -9,6 +9,8 @@ blblm_fast(x, y, m = 10, B = 5000)
 \arguments{
 \item{x}{which is usual matrix as the predictive variable, if you want to include the intercetion, please include the 1 vector in the first colmun}
 
+\item{y}{the reaponse variable}
+
 \item{m}{which is numeric variables, indicates the number of splits we need}
 
 \item{B}{which is a numeric variable, indicates number of bootstraps we need}

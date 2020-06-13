@@ -9,6 +9,8 @@ blbglm_par(formula, family = gaussian, data, m = 10, B = 5000, cl)
 \arguments{
 \item{formula}{The linear regression model we fitted}
 
+\item{family}{which indicates which kinds of glm we use}
+
 \item{data}{which is usual is the data frame, which is the data we imput.}
 
 \item{m}{which is numeric variables, indicates the number of splits we need}
@@ -29,10 +31,3 @@ Fit the linear regression model  with more than one CPUs
 # fit<- blbglm_par(Species~., data = read.csv("iris.csv"), m = 10, B = 5000)
 # stopCluster(cl)
 }
-\seealso{
-Other family which indicates which kinds of glm we use: 
-\code{\link{blbglm_file_par}()},
-\code{\link{blbglm_file}()},
-\code{\link{blbglm}()}
-}
-\concept{family which indicates which kinds of glm we use}

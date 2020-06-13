@@ -13,6 +13,7 @@ utils::globalVariables(c("."))
 #' @title Fit a linear regression model for a fast method
 #' @description Fit the linear regression model with matrix input
 #' @param x which is usual matrix as the predictive variable, if you want to include the intercetion, please include the 1 vector in the first colmun
+#' @param y the reaponse variable
 #' @param m  which is numeric variables, indicates the number of splits we need
 #' @param B which is a numeric variable, indicates number of bootstraps we need
 #' @return blblm object

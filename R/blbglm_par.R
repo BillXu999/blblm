@@ -18,7 +18,7 @@ utils::globalVariables(c("."))
 #' @param formula The linear regression model we fitted
 #' @param data which is usual is the data frame, which is the data we imput.
 #' @param m  which is numeric variables, indicates the number of splits we need
-#' @family family which indicates which kinds of glm we use
+#' @param family which indicates which kinds of glm we use
 #' @param B which is a numeric variable, indicates number of bootstraps we need
 #' @param cl The muticluster we get from parallel
 #' @return blblm object

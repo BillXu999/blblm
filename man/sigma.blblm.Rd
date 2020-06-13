@@ -7,7 +7,13 @@
 \method{sigma}{blblm}(object, confidence = FALSE, level = 0.95, ...)
 }
 \arguments{
-\item{x}{Which is a blblm variable.}
+\item{object}{Which is a blblm variable.}
+
+\item{confidence}{It the confidence is needed}
+
+\item{level}{The level of alpha}
+
+\item{...}{Nothing}
 }
 \value{
 sigma which is the sigema of fit

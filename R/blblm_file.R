@@ -32,13 +32,13 @@ blblm_file <- function(formula, file, m = 10, B = 5000) {
 }
 
 
-#' compute the estimates
+# compute the estimates
 lm_each_subsample_file <- function(formula, file, B) {
   replicate(B, lm_each_boot_file(formula, file), simplify = FALSE)
 }
 
 
-#' compute the regression estimates for a blb dataset
+# compute the regression estimates for a blb dataset
 lm_each_boot_file <- function(formula, file) {
   data<- read.csv(file)
   n = nrow(data)

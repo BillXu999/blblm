@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(blblm)
 ```
+
 # blblm
 # Introduction
 
@@ -28,7 +29,12 @@ The "blblm-" or "blbglm-", will return the "blblm" class, wich can do everything
 
 But the "blblm_fast" will return the “blblm_fast” class, which can do compute sigma and compute the coefficent value. 
 
-
+```{r}
+library(devtools)
+document()
+load_all()
+library(blblm)
+```
 ## I am very sorry, I do not why I can not install my package, so the only choose for me is to introduce my work here.
 
 ### 1. blblm(formula, data, m, B)
@@ -134,4 +140,5 @@ sigma(fit12)
 coef(fit12)
 ```
 This is just the combination of before. We can consider fitting model with imput the file and with more than one CPUS.
+
 

@@ -12,6 +12,10 @@
 \item{new_data}{which is a data set, it is the value we want to predict}
 
 \item{confidence}{Whcih is the alpha level we want to choose}
+
+\item{level}{The level of alpha}
+
+\item{...}{Nothing}
 }
 \value{
 which returns the predictive value or the confidence interval.

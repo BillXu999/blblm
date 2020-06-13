@@ -26,13 +26,13 @@ blblm_fast_file <- function(file, B = 5000) {
   invisible(res)
 }
 
-#' compute the estimates
+# compute the estimates
 lm_each_subsample_fast_file <- function(file, B) {
   replicate(B, lm_each_boot_fast_file(file), simplify = FALSE)
 }
 
 
-#' compute the regression estimates for a blb dataset
+# compute the regression estimates for a blb dataset
 lm_each_boot_fast_file <- function(file) {
   data<- as.matrix(read.csv(file))
   n<- nrow(data)

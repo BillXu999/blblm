@@ -7,7 +7,13 @@
 \method{confint}{blblm}(object, parm = NULL, level = 0.95, ...)
 }
 \arguments{
-\item{x}{Which is a blblm variable.}
+\item{object}{Which is a blblm variable.}
+
+\item{parm}{The parameter you focus on}
+
+\item{level}{The level of alpha\\}
+
+\item{...}{Nothing}
 }
 \value{
 sigma which is the confident interval of fit

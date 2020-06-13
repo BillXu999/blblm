@@ -7,7 +7,9 @@
 \method{coef}{blblm}(object, ...)
 }
 \arguments{
-\item{x}{Which is a blblm variable.}
+\item{object}{Which is a blblm variable.}
+
+\item{...}{nothing}
 }
 \value{
 coef which is the coefficient of fit

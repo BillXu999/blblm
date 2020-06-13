@@ -12,6 +12,8 @@ blblm_file_par(formula, file, B = 5000, cl)
 \item{file}{which is usual the list of name of .csv files, which is the data we imput.}
 
 \item{B}{which is a numeric variable, indicates number of bootstraps we need}
+
+\item{cl}{The muticluster we get from parallel}
 }
 \value{
 blblm object

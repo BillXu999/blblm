@@ -34,13 +34,13 @@ blbglm_file <- function(formula,family = gaussian, file, B = 5000) {
 }
 
 
-#' compute the estimates
+# compute the estimates
 glm_each_subsample_file <- function(formula, file, B,family) {
   replicate(B, glm_each_boot_file(formula, file,family), simplify = FALSE)
 }
 
 
-#' compute the regression estimates for a blb dataset
+# compute the regression estimates for a blb dataset
 glm_each_boot_file <- function(formula, file,family) {
 
   data<- read.csv(file)

@@ -81,6 +81,7 @@ blbsigma <- function(fit) {
 #' @title The method for the blblm class
 #' @description For a blblm object input, we get the print
 #' @param x Which is a blblm variable.
+#' @param ... Nothing
 #' @return char return the formula from the blblm variable
 #' @examples
 #' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
@@ -95,7 +96,10 @@ print.blblm <- function(x, ...) {
 
 #' @title The method for the blblm class
 #' @description For a blblm object input, we get the sigma
-#' @param x Which is a blblm variable.
+#' @param object Which is a blblm variable.
+#' @param confidence It the confidence is needed
+#' @param level The level of alpha
+#' @param ... Nothing
 #' @return sigma which is the sigema of fit
 #' @examples
 #' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
@@ -122,7 +126,8 @@ sigma.blblm <- function(object, confidence = FALSE, level = 0.95, ...) {
 
 #' @title The method for the blblm class
 #' @description For a blblm object input, we get the coef
-#' @param x Which is a blblm variable.
+#' @param object Which is a blblm variable.
+#' @param ... nothing
 #' @return coef which is the coefficient of fit
 #' @examples
 #' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
@@ -137,7 +142,10 @@ coef.blblm <- function(object, ...) {
 
 #' @title The method for the blblm class
 #' @description For a blblm object input, we get the confident interval
-#' @param x Which is a blblm variable.
+#' @param object Which is a blblm variable.
+#' @param parm The parameter you focus on
+#' @param level The level of alpha\\
+#' @param ... Nothing
 #' @return sigma which is the confident interval of fit
 #' @examples
 #' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
@@ -168,6 +176,8 @@ confint.blblm <- function(object, parm = NULL, level = 0.95, ...) {
 #' @param object Which is a blblm variable.
 #' @param new_data which is a data set, it is the value we want to predict
 #' @param confidence Whcih is the alpha level we want to choose
+#' @param level The level of alpha
+#' @param ... Nothing
 #' @return  which returns the predictive value or the confidence interval.
 #' @examples
 #' # fit<- blblm(mpg~disp, data = mtcars, m = 10, B = 5000)

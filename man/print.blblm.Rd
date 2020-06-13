@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{x}{Which is a blblm variable.}
+
+\item{...}{Nothing}
 }
 \value{
 char return the formula from the blblm variable

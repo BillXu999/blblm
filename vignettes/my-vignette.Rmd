@@ -77,7 +77,7 @@ This function is provided my professor. This function fit the linear regression 
 
 ```{r}
 
-fit1<-blblm(mpg~disp+hp,mtcars,m=4,B = 100)
+fit1<-blblm_general(mpg~disp+hp,mtcars,m=4,B = 100)
 
 sigma(fit1)
 

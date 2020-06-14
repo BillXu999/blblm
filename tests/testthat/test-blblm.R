@@ -3,12 +3,12 @@
 
 test_that("blblm", {
 
-  expect_equal(is.na(sigma(blblm(mpg~disp, mtcars, 10 ,20))), FALSE)
+  expect_equal(is.na(sigma(blblm_general(mpg~disp, mtcars, 10 ,20))), FALSE)
 })
 
 test_that("blblm_glm", {
   data<- data.frame(Y = c(1,0,0,1,0,1), X= c(1,0,0,0,0,1))
-  expect_equal(is.na(sigma(blblm(mpg~disp, mtcars, 10 ,20))), FALSE)
+  expect_equal(is.na(sigma(blbglm(mpg~disp,family = gaussian ,mtcars, 10 ,20))), FALSE)
 })
 
 test_that("blblm_fast", {

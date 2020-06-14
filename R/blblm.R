@@ -18,9 +18,9 @@ utils::globalVariables(c("."))
 #' @param B which is a numeric variable, indicates number of bootstraps we need
 #' @return blblm object
 #' @examples
-#' # fit<- blblm(mpg~., data = mtcars, m = 10, B = 5000)
+#' # fit<- blblm_general(mpg~., data = mtcars, m = 10, B = 5000)
 #' @export
-blblm <- function(formula, data, m = 10, B = 5000) {
+blblm_general <- function(formula, data, m = 10, B = 5000) {
   data_list <- split_data(data, m)
   estimates <- map(
     data_list,

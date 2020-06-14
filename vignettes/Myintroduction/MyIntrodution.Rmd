@@ -32,7 +32,7 @@ library(blblm)
 This function is provided my professor. This function fit the linear regression model with bag of little bootrastrp. When the data set is large, the result from this funciton could converge. 
 
 ```{r}
-fit1<-blblm(mpg~disp+hp,mtcars,m=4,B = 100)
+fit1<-blblm_general(mpg~disp+hp,mtcars,m=4,B = 100)
 sigma(fit1)
 coef(fit1)
 ```

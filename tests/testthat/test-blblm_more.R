@@ -3,7 +3,7 @@
 
 test_that("blblm", {
 
-  expect_equal(is.na(sigma(blblm(mpg~disp, mtcars, 10 ,20))), FALSE)
+  expect_equal(is.na(sigma(blblm_general(mpg~disp, mtcars, 10 ,20))), FALSE)
 })
 
 

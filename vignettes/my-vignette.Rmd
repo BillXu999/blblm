@@ -237,7 +237,7 @@ coef(fit11)
 
 ### 6. blblm_file_par(formula, file, m, B,cl), blbglm_file_(formula, family, file, m, B,cl),blblm_file_fast_(file , B)
 
-
+This is just the combination of before. We can consider fitting model with imput the file and with more than one CPUS.
 
 
 
@@ -273,4 +273,3 @@ coef(fit12)
 
 ```
 
-This is just the combination of before. We can consider fitting model with imput the file and with more than one CPUS.

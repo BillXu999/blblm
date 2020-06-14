@@ -1,5 +1,6 @@
 #' @import purrr
 #' @import stats
+#' @import readr
 #' @importFrom magrittr %>%
 #' @details
 #' Linear Regression with Little Bag of Bootstraps
@@ -40,7 +41,7 @@ lm_each_subsample_file <- function(formula, file, B) {
 
 # compute the regression estimates for a blb dataset
 lm_each_boot_file <- function(formula, file) {
-  data<- read.csv(file)
+  data<- readr::read_csv(file)
   n = nrow(data)
   freqs <- rmultinom(1, n, rep(1, nrow(data)))
   lm1(formula, data, freqs)

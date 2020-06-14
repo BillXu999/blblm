@@ -25,7 +25,9 @@ Imports:
     Rcpp,
     RcppArmadillo,
     furrr,
-    devtools
+    devtools,
+    readr,
+    utils
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 LinkingTo: 

@@ -1,7 +1,7 @@
-
 #' @import purrr
 #' @import stats
 #' @importFrom magrittr %>%
+#' @importFrom utils capture.output
 #' @details
 #' Linear Regression with Little Bag of Bootstraps
 "_PACKAGE"
@@ -154,7 +154,7 @@ coef.blblm <- function(object, ...) {
 #' @method confint blblm
 confint.blblm <- function(object, parm = NULL, level = 0.95, ...) {
   if (is.null(parm)) {
-    parm <- attr(terms(fit$formula), "term.labels")
+    parm <- attr(terms(object$formula), "term.labels")
   }
   alpha <- 1 - level
   est <- object$estimates

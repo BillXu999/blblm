@@ -78,7 +78,7 @@ blbsigma <- function(fit) {
 
 
 
-#' @title The method for the blblm class
+#' @title The method for the blblm class to print
 #' @description For a blblm object input, we get the print
 #' @param x Which is a blblm variable.
 #' @param ... Nothing
@@ -94,7 +94,7 @@ print.blblm <- function(x, ...) {
 }
 
 
-#' @title The method for the blblm class
+#' @title The method for the blblm class to get the sigma
 #' @description For a blblm object input, we get the sigma
 #' @param object Which is a blblm variable.
 #' @param confidence It the confidence is needed
@@ -124,7 +124,7 @@ sigma.blblm <- function(object, confidence = FALSE, level = 0.95, ...) {
 
 
 
-#' @title The method for the blblm class
+#' @title The method for the blblm class to get the coefficient
 #' @description For a blblm object input, we get the coef
 #' @param object Which is a blblm variable.
 #' @param ... nothing
@@ -140,7 +140,7 @@ coef.blblm <- function(object, ...) {
 }
 
 
-#' @title The method for the blblm class
+#' @title The method for the blblm class to get the confident interval
 #' @description For a blblm object input, we get the confident interval
 #' @param object Which is a blblm variable.
 #' @param parm The parameter you focus on
@@ -171,7 +171,7 @@ confint.blblm <- function(object, parm = NULL, level = 0.95, ...) {
 
 
 
-#' @title The method for the blblm class
+#' @title The method for the blblm class to predict
 #' @description For a blblm object input, we get the predictive value and the confident interval for the variable.
 #' @param object Which is a blblm variable.
 #' @param new_data which is a data set, it is the value we want to predict

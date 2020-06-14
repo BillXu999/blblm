@@ -2,7 +2,7 @@
 % Please edit documentation in R/blblm.R
 \name{print.blblm}
 \alias{print.blblm}
-\title{The method for the blblm class}
+\title{The method for the blblm class to print}
 \usage{
 \method{print}{blblm}(x, ...)
 }

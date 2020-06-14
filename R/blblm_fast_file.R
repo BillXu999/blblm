@@ -35,7 +35,7 @@ lm_each_subsample_fast_file <- function(file, B) {
 
 # compute the regression estimates for a blb dataset
 lm_each_boot_fast_file <- function(file) {
-  data<- as.matrix(readr::read_csv(file))
+  data<- as.matrix(readr::read_csv(file,col_types = cols()))
   n<- nrow(data)
   freqs <- sample(1:n,n,replace = TRUE)
   data_weighted<- matrix(0,n,ncol(data))

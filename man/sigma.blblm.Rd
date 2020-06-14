@@ -2,7 +2,7 @@
 % Please edit documentation in R/blblm.R
 \name{sigma.blblm}
 \alias{sigma.blblm}
-\title{The method for the blblm class}
+\title{The method for the blblm class to get the sigma}
 \usage{
 \method{sigma}{blblm}(object, confidence = FALSE, level = 0.95, ...)
 }

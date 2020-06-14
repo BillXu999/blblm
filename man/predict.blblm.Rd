@@ -2,7 +2,7 @@
 % Please edit documentation in R/blblm.R
 \name{predict.blblm}
 \alias{predict.blblm}
-\title{The method for the blblm class}
+\title{The method for the blblm class to predict}
 \usage{
 \method{predict}{blblm}(object, new_data, confidence = FALSE, level = 0.95, ...)
 }

@@ -43,7 +43,7 @@ glm_each_subsample_file <- function(formula, file, B,family) {
 # compute the regression estimates for a blb dataset
 glm_each_boot_file <- function(formula, file,family) {
 
-  data<- readr::read_csv(file)
+  data<- readr::read_csv(file,col_types = cols())
   n = nrow(data)
   freqs <- rmultinom(1, n, rep(1, nrow(data)))
   glm1(formula,family ,data, freqs)

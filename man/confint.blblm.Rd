@@ -2,7 +2,7 @@
 % Please edit documentation in R/blblm.R
 \name{confint.blblm}
 \alias{confint.blblm}
-\title{The method for the blblm class}
+\title{The method for the blblm class to get the confident interval}
 \usage{
 \method{confint}{blblm}(object, parm = NULL, level = 0.95, ...)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/blblm.R
 \name{coef.blblm}
 \alias{coef.blblm}
-\title{The method for the blblm class}
+\title{The method for the blblm class to get the coefficient}
 \usage{
 \method{coef}{blblm}(object, ...)
 }
